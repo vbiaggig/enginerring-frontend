@@ -15,4 +15,5 @@
 ### Bonus points 
 - Test cases
 - Documentation 
-- 
+
+## [Frequently Asked Questions](https://github.com/Flahmingo-Investments/enginerring-frontend/discussions/3 "FAQs")
