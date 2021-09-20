@@ -5,7 +5,7 @@ import { TechChart, CommunicationChart, EnergyChart } from "../assets/images/you
 export const WINDOWS_WIDTH: number = Dimensions.get('window').width;
 export const WINDOWS_HEIGHT: number = Dimensions.get('window').height;
 
-export const BALANCE_ITEMS: object = [
+export const BALANCE_ITEMS: any = [
     {
         title: "Portfolio Value",
         amount: 850.64,
@@ -29,8 +29,9 @@ export const BALANCE_ITEMS: object = [
     },
 ]
 
-export const YOURPIES_ITEMS: object = [
+export const YOURPIES_ITEMS: any = [
     {
+        id: 1,
         title: "Tech Pie",
         data: Array.from({length: 20}, () => Math.floor(Math.random() * 10)),
         color: "#FF63AF",
@@ -42,6 +43,7 @@ export const YOURPIES_ITEMS: object = [
         stock: 5,
     },
     {
+        id: 2,
         title: "Communication Pie",
         data: Array.from({length: 20}, () => Math.floor(Math.random() * 10)),
         color: "#6A6DCD",
@@ -53,6 +55,7 @@ export const YOURPIES_ITEMS: object = [
         stock: 3,
     },
     {
+        id: 3,
         title: "Energy Pie",
         data: Array.from({length: 20}, () => Math.floor(Math.random() * 10)),
         color: "#54BF99",
@@ -65,7 +68,7 @@ export const YOURPIES_ITEMS: object = [
     },
 ]
 
-export const WATCHLIST_ITEMS: object = [
+export const WATCHLIST_ITEMS: any = [
     {
         nick: "SHOP",
         name: "Shopify Inc.",
@@ -132,7 +135,7 @@ export const WATCHLIST_ITEMS: object = [
         icon: AppleIcon,
         data: Array.from({length: 20}, () => Math.floor(Math.random() * 10)),
         startAngle: Math.floor(Math.random() * 360),
-        color: "#FF63AF",
+        color: "#483698",
         amount: 97.77,
         amountType: "USD",
         positive: true,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { LineChart } from 'react-native-svg-charts';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
@@ -9,27 +9,35 @@ import { WINDOWS_WIDTH, YOURPIES_ITEMS } from '../../constants';
 const carouselItems: object = YOURPIES_ITEMS;
 const sliderWidth: number = WINDOWS_WIDTH;
 
-const YourPies: React.FC = () => {
+const YourPies: React.FC = (props: { navigation: any }) => {
+    const { navigation } = props;
     const [activeIndex, setActiveIndex] = useState(0);
 
     const _renderItem = (props: { item: any, index: number, isPicker: boolean }) => {
         const { item, index, } = props;
+        const handleOnPress = async () => {
+            navigation.navigate('PieInfo', { pieInfo: item, })
+        }
+
         return (
-            <View style={styles.itemContainer}>
-                <Text style={styles.itemTitle}>{item.title}</Text>
-                <LineChart
-                    style={{ height: 64 }}
-                    data={item.data}
-                    svg={{ stroke: item.color, strokeWidth: 2 }}
-                    contentInset={{ top: 20, bottom: 20 }}
-                />
-                <Text style={styles.itemAmount}>${item.amount} <Text style={styles.itemAmountType}>{item.amountType}</Text></Text>
-                <View style={styles.itemDegree}>
-                    <Image source={item.positive ? ArrowUpwardIcon : ArrowDownwardIcon} />
-                    <Text style={{ color: item.positive ? "#34B78F" : "#F2827F", fontSize: 12 }}>{" "}${item.degreeAmount} ({item.degreePercentage}%)</Text>
+            <TouchableOpacity onPress={handleOnPress}>
+                <View style={styles.itemContainer}>
+                    <Text style={styles.itemTitle}>{item.title}</Text>
+                    <LineChart
+                        style={{ height: 64 }}
+                        data={item.data}
+                        svg={{ stroke: item.color, strokeWidth: 2 }}
+                        contentInset={{ top: 20, bottom: 20 }}
+                    />
+                    <Text style={styles.itemAmount}>${item.amount} <Text style={styles.itemAmountType}>{item.amountType}</Text></Text>
+                    <View style={styles.itemDegree}>
+                        <Image source={item.positive ? ArrowUpwardIcon : ArrowDownwardIcon} />
+                        <Text style={{ color: item.positive ? "#34B78F" : "#F2827F", fontSize: 12 }}>{" "}${item.degreeAmount} ({item.degreePercentage}%)</Text>
+                    </View>
+                    <Text style={{ fontSize: 12, color: "#FF63AF" }}>{item.stock} stock{item.stock > 1 && "s"}</Text>
                 </View>
-                <Text style={{ fontSize: 12, color: "#FF63AF" }}>{item.stock} stock{item.stock > 1 && "s"}</Text>
-            </View>
+            </TouchableOpacity>
+
         );
     }
 

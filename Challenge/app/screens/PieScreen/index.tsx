@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-import { HeaderBackground } from '../assets/background';
-import { Header } from '../shared/components';
-import { Balance, Watchlist, YourPies } from '../components/pie';
+import { HeaderBackground } from '../../assets/background';
+import { Header } from '../../shared/components';
+import { Balance, Watchlist, YourPies } from '../../components/pie';
 
-const PieScreen: React.FC = () => {
+const PieScreen: React.FC = (props: { navigation: any }) => {
+    const { navigation } = props;
+
     return (
         <ScrollView style={{ flex: 1 }}>
             <ImageBackground source={HeaderBackground} resizeMode="stretch" resizeMethod="resize" style={styles.headerBackground}>
                 <View style={styles.container}>
                     <Header />
                     <Balance />
-                    <YourPies />
+                    <YourPies navigation={navigation} />
                     <Watchlist />
                 </View>
             </ImageBackground>

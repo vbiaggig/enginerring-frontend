@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BellFocusedIcon, BellIcon, CoinFocusedIcon, CoinIcon, MagnifierFocusedIcon, MagnifierIcon, PersonFocusedIcon, PersonIcon, PieFocusedIcon, PieIcon } from '../assets/icons';
 
 import PieScreen from '../screens/PieScreen';
+
 import CoinScreen from '../screens/CoinScreen';
 import MagnifierScreen from '../screens/MagnifierScreen';
 import PersonScreen from '../screens/PersonScreen';
